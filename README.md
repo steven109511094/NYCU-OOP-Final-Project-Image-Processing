@@ -1,11 +1,13 @@
 # OOP Final Project: Photo Mosaic
-Last Updated: 5/26
-:::warning
+Last Updated: 6/17
+:::danger
 Update Q&A section(新增QA部分在最後面!)  
-寄信詢問前可以先看一下問題有沒有被問過!
+寄信詢問前可以先看一下問題有沒有被問過!  
+新增影片說明如何問一個有用的問題...  
+新增cppcheck的安裝
+新增cppcheck的使用
+新增feedback
 :::
-
-[![hackmd-github-sync-badge](https://hackmd.io/wL8VqoYNS_GaZTepscWhlA/badge)](https://hackmd.io/wL8VqoYNS_GaZTepscWhlA)
 
 
 ![image](https://hackmd.io/_uploads/By0sjAYbR.png)
@@ -426,9 +428,12 @@ $ tree -L 2
 
 *    額外功能(25%) 根據自己的興趣，自由發揮創意延伸
         *    鼓勵大家貢獻自己的程式到開源社群，上傳project到github得到2分。(需附上project repo)並且盡早建立如何做好程式專案版本控制(version control)及如何與團隊協作專案的能力。 [ref link](https://github.com/twtrubiks/Git-Tutorials)  
-        (先fork repo，再git clone -> commit -> push to your own repo)  
         
-        或是你直接開一個新的repo，直接整包上傳上去，不會的話再來信詢問!
+        或是你直接開一個新的repo，直接整包上傳上去，不會的話再來信詢問!  
+        
+        比較完整的git/github教學:
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/FKXRiAiQFiY?si=tNPLQ83SkLfbQT6x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        
         *    Image Segamentation(影像分割)
         *    Photo Mosaic with only 1 picture [IEEE paper](https://ieeexplore.ieee.org/document/7965140)
         ![image](https://hackmd.io/_uploads/r171Wpq-C.png)
@@ -444,7 +449,7 @@ $ tree -L 2
 :::
 
 ## Submission
-*    Time: 2024/6/17(二) 12:00
+*    Time: 2024/6/17(一) 12:00
 *    File to submit: `NYCU-OOP-Final-Project.tar` & `final_report.pdf`
         ```bash=
         # 產生壓縮檔
@@ -485,6 +490,15 @@ $ tree -L 2
 *   catimg (https://github.com/posva/catimg)
 
 ## Q&A
+
+學會如何問問題:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ro6zXK1DYGc?si=GtR4O62woC_GgrwZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+在這次期末專題寫信來問問題時，蠻多人都不知道如何問一個好的問題。剛好今天yt演算法推薦上面這部影片給我就拿來跟你們分享。
+
+希望你們在問問題時，可以讓我們知道你不會的點在哪邊，並且提供相關的證據(截圖或是什麼樣的error message)，我相信助教們的經驗絕對比各位還要豐富，我們可能稍微提點個五分鐘可以省去你瞎忙兩個小時。因此，學會如何問問題是很重要的事情!  
+
+---
 
 *    Q1:
 關於期末專題的memory leak check，有提到跟X_Server有關的function會影響檢查的結果，檢查時不要用這個function，想請問具體是要在哪些地方disable掉這個function呢?
@@ -536,3 +550,165 @@ GrayImage 和 RGBImage class 中的CMD要呼叫datal_oader裡的Diaplay_Gray_CMD
 
         這邊我有提示需要搭配dump 來使用，可以先產生一個暫時的輸出圖片，使用CMD相關function之後（內部實作其實是去call catimg 的binary 執行檔），再使用system call的方法將該暫時出現的圖片刪除。查詢C/C++ system()的使用方式，配搭之前之前上機課教過的linux command 即可在c++中刪除該中間產生的圖片檔！
         :::
+        
+*    Q4:
+我想詢問專題是一定要在mobaxterm上面跑嗎，還是可以直接在windows powershell 裡面跑就好。
+
+        :::spoiler
+
+        對! 這次期末專題為求簡單，請在mobaxterm上跑。
+        我猜如果你要把它移植到windows跑得動會需要費一大功夫。
+        因為server本身有安裝一些套件，像是git, shell, cmake, make. 
+        還有一些相關的library來使用，像是pthread, jpeg, Xserver。
+        這些東西如果你要移植到windows跑是沒有問題，只是你會花費非常大的時間在裝環境，甚至最終還會失敗。
+        :::
+
+*    Q5: 
+將圖片以符號的形式印在terminal，如果是小圖的話能夠印正常，大圖沒辦法印出全部。  
+
+        :::spoiler
+        ![螢幕擷取畫面 (203)](https://hackmd.io/_uploads/Sy_8K-DHR.png)
+        在mobaxterm terminal ctrl +滑鼠滾輪往下 縮小terminal 行距與字的大小可以解決你的問題！
+        :::
+        
+*    Q6: 
+可以在Image.h gray_image.h rgb_image.h中加額外的member function或data member嗎?
+
+        :::spoiler
+        可以喔! 記得註明在報告中!
+        :::
+
+*    Q7: 
+原本 Step 3: Bit-field with image filter design(15%) 是使用bit_field的方式，來指定要通過1-4種簡單影像處理的演算法，那如果我多做幾個bit_field，做到7-8個這樣，這樣能算進額外功能的部分嗎?
+
+        :::spoiler
+        可以，我們會將功能複雜程度分成 A B C D不同等級，依次分別加 7 5 3 1的分數！記得在報告描述你做了什麼功能及實作細節！
+        :::
+
+*    Q8:
+助教您好，關於make後執行編譯檔時顯示 Failed to recognize format of file 'Image-Folder/1.jpeg’.，也試過jpg檔和png檔，都出現同樣的問題，有用過file Image-Folder/1.jpeg測試檢查文件格式，出現JPEG image data ，所以應該是沒問題的。因此想詢問為何出現此錯誤呢？
+
+        :::spoiler
+        ![image](https://hackmd.io/_uploads/HkZqatYHA.png)
+        這邊確實蠻複雜的，當初我在串Cimg library 的時候也卡了很久，跌了很多的坑，因此我提供了data_loader的class 讓你們免於這些困擾，你可以很簡易的使用data_loader 所提供的介面來把圖片讀成陣列！不需要自己去撰寫讀檔的部分！
+        :::
+        
+*    Q9:
+想請問QA中提到的cppcheck要如何安裝呢?雖然網路上有很多參考資料但我還是搞不定。
+
+        :::spoiler
+        這邊是期許同學有能力自行抓取網路上的open source project到local端自己compile。
+        cppcheck的程式是開源，且網路上找得到的。
+        可以從網路上抓下壓縮檔，到我們的server解壓縮再編譯，而後得到cppcheck的binary executable。
+        
+        ```bash=
+        eg:
+        $ wget https://github.com/danmar/cppcheck/archive/2.13.0.tar.gz    # 下載cppcheck整包的壓縮檔
+        $ tar xvf 2.13.0.tar.gz                                            # 解壓縮
+        $ cd cppcheck-2.13.0/                                                                       
+        $ make -j                                                          # compile [要等一陣子]
+
+        # cppcheck usage
+        # <checkFile> : path for file or directory
+        $ ./cppcheck <checkFilePath> --enable=all --inconclusive --suppress=missingIncludeSystem # 後面參數你可以自由決定
+        ```
+        給你一個例子看看: test.cpp
+        ```c=
+        #include <iostream>
+
+        using namespace std;
+
+        int main(){
+                int a[10];
+                a[10] = 0;
+                a[9] = 1;
+
+                if(a[9] == 1){
+                        cout << "hi";
+                }
+        }
+
+        ```
+        執行結果:
+        ![image](https://hackmd.io/_uploads/rJB9Wg9HC.png)
+        可以看到這支程式中很明顯犯的錯誤，此為靜態分析。在沒有執行你的code的情況下，將我們的code當成cppcheck這支程式的input，來做code的錯誤偵測。
+        :::
+        
+*    Q10:
+這邊還想請問一下cppcheck應該要安裝在我的資料夾中的哪一層呢?因為我剛才用發現貌似被測試的檔案必須要在cppcheck-2.13.0的資料夾中才有辦法成功被檢測。是否我還需要將要檢測的程式碼複製一分到cppcheck-2.13.0當中?
+
+        :::spoiler
+        因為cppcheck executable 是有depends於一些檔案，因此單純搬運cppcheck binary executable 是行不通的
+
+        你不一定要安裝在我們專題資料夾中，你可以把./cpocheck [這邊放專題路徑] —some argu 
+        :::
+
+*    Q11:
+在檢查main.cpp時，他會報說:
+![image](https://hackmd.io/_uploads/BkACNa9rC.png)  
+請問要這樣直接放進報告中嗎?還是要將其他所有的cpp檔都用cppcheck跑過一次?
+
+        :::spoiler
+        不過cppcheck 是可以recursive check 某個目錄底下的所有code 檔案，請將路徑改為我們專題的根目錄，並且將third-party 中的code exclude 掉，便可以偵測該project 中所有的code!
+
+        你可以先找cppcheck argument 來exclude 特定third-party 中的程式，或者你直接把third-party 全刪，跑完cppcheck 再make install 回來。
+
+        你也可以將cppcheck 的功能加入makefile 中，使你只需要打make cppcheck 便可以檢查到所有相關的檔案，不需要每次都打那麼長的指令！
+        
+        此外，你也可以在報告中提及cppcheck 偵測了什麼樣的warning 及error 出來，而後你又是如何解決的！
+
+        這些tool:cppcheck 及valgrind 都是常見的錯誤偵測的程式，在外面工作之後，當你的code 要整合進公司code base 前都會需要先經過這些檢測！在大一提早教你們這些tool 的使用讓你們可以及早熟悉！
+        :::
+
+## Some Feedback from TA
+*    OOP終究只是一種程式設計的風格
+
+        使用OOP並不會讓你的程式跑得比較快，OOP僅僅是一種程式設計的風格，若是對程式有興趣的同學請在未來修習資料結構及演算法。資料結構會教你如何存資料，使得你對資料的存取可以有更有效率的方法。演算法是一種解決問題的方式，不同的演算法有不同的複雜度。選擇一個好的演算法及搭配適合的資料結構才是使各位程式跑的更有效率的不二法門!
+        
+
+*    Programming + Domain Knowledge
+
+        我想大一的各位應該都尚未學過影像處理的演算法對吧!在大家只有基本程式能力的情況下，讓大家上網自學影像處理演算法，辛苦大家了。我想各位都來自不同的領域，在各自領域學有所成後，將程式設計結合進各位的相關領域，各位便可以有著無限的潛能!大家未來加油!
+
+*    Model Synthesis
+
+        其實這次很期待各位可以將AI方面的演算法甚至是機器學習演算法整合進我們的程式中。對於圖片來說最常見的機器學習演算法為CNN架構，說白了就只是做權重的乘與加而已，其實數學是非常簡單的。實際實現可以先使用python的框架(tensorflow/pytorch)去訓練一個機器學習模型，而後將訓練出來的權重存成陣列(array in c/c++ code)，那同樣也可以在c/c++ code中運行ML algorithm。目前也有相當多的開元套件在這方面發展，可以很輕易的將ML model 嵌入在我們的c/c++ code中，給各為一個新奇的想法!
+
+*    Tool的使用
+
+        這次的final project要求各位去學著使用git/make/valgrind/cppcheck，確實對各位負擔比較大，但是我想這只都只有帶各位入門而已，未來各位在開發程式的時候，記得善用各種工具來輔助，來增加效率。這些tool到各位出社會前都不會有專門的一堂課來教你這些tool如何使用，希望在大一及早帶各位閱覽這些tool有助於各位未來的發展!
+
+*    行銷的重要性
+        
+        這次很多同學都實作了非常多的功能，但是不管是報告，或是如何使用你們的程式都是草草帶過。對我來說，程式寫得好與撰寫完整的技術文件與使用方式是相同重要的。
+
+*    一些不錯的連結
+        
+        *    [你所不知道的c語言](https://hackmd.io/@sysprog/c-prog/%2F%40sysprog%2Fc-programming)
+        
+                這個網站由成大資工教授jserv維護，希望各位暑假有空可以點進去學習更多程式相關的基礎知識!
+                
+        *    [Jacob Sorber](https://www.youtube.com/@JacobSorber)
+                
+                一個很好入門資料結構的youtuber課程
+        
+
+*    Contact Info
+
+        很高興認識各位，以下是我的聯絡方式及github，若是未來有甚麼有趣的想法，都可以跟我討論。
+        
+        [gmail]-(mnb51817@gmail.com)
+        
+        [github]-(https://github.com/coherent17)
+        
+## 最終成果(github link)
+
+*    [謝承諺](https://github.com/glenneee/PhotoMosaic)
+*    [彭柏凱](https://github.com/pkbbkphey/Photo-Mosaic)
+*    [黃意庭](https://github.com/Huangmona/Photo-Mosaic)
+*    [蔡亞彤](https://github.com/popisgood/2024-OOP-Final_Project-public)
+*    [林羿辰](https://github.com/yichen0705/NYCU-OOP-Final-Project)
+*    [何昕恩,楊文德](https://github.com/ayanaxinnn/theOOPFianl)
+*    [歐哲熏,王琮翔](https://github.com/CharLie071005/OOP_final_project)
+*    [李允翔,楊勗](https://github.com/chrisyang1007/OOP-Final-Project)
+*    [郭柏均](https://github.com/someone7414/OOP2024.git)
