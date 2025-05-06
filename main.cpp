@@ -1,12 +1,12 @@
 #include "image.h"
 #include "gray_image.h"
 #include "rgb_image.h"
-#include "photo_mosaic.h"
+#include "image_encryption.h"
 #include "bit_field_filter.h"
 
 int main(int argc, char *argv[]){
     Image *img1 = new GrayImage();
-    img1->LoadImage("Image-Folder/mnist/img_100.jpg");
+    img1->LoadImage("Image-Folder/lena.jpg");
     img1->DumpImage("img1.jpg");
     img1->Display_X_Server();
     img1->Display_CMD();
