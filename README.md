@@ -15,18 +15,6 @@ Last Updated: 2025/05/07
 當然了，我們也要能夠從加密完的圖片中，解碼出原來的字串。
 若是只有這樣，題目難免有些單調，因此我們也鼓勵同學們上網搜尋與實作各種有關影像處理、文字加密的算法。只要demo時展示功能並附註於結報中，助教們會依照內容豐富度與難度進行額外加分!
 
-## 誰適合寫這份題目?
-*    對學習和探索新知識充滿熱情的人
-*    對數位影像處理充滿熱情的人
-*    具有上網搜索及自學能力者
-*    想要推甄/轉系有作品集的
-
-## 需要具備的能力
-*    OOP
-*    Dynamic Array
-*    Pointer
-*    Know how to use google.
-
 ## Preface: What is Digital Image?
 數位影像是電腦處理的視覺資訊表現形式，與傳統模擬影像不同，它由離散的像素構成，每個像素包含特定的顏色和亮度資訊，而這些像素的排列形成了影像的整體視覺內容。
 
@@ -396,13 +384,13 @@ $ tree -L 2
 
 將class header interface放在inc folder內部，並且將source code的實作放在src folder內部，makefile會自動去識別dependency，並且在您對某些檔案進行修改後，僅編譯需要重新編譯之檔案，不會整份project重新編譯一次，如此一來再搭配上parallel compile，讓您再開發上能夠節省不少時間。
 
-## Git/Github
-鼓勵大家貢獻自己的程式到開源社群，上傳project到github。(需附上project repo)並且盡早建立如何做好程式專案版本控制(version control)及如何與團隊協作專案的能力。 [ref link](https://github.com/twtrubiks/Git-Tutorials)  
+## Bonus
+*    Upload project to github。(需附上project repo) [ref link](https://github.com/twtrubiks/Git-Tutorials)  
         
 比較完整的git/github教學:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FKXRiAiQFiY?si=tNPLQ83SkLfbQT6x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-## Bonus references
+
 *    More image filters
         *    fisheye filter
         *    cold/warm adjustment
