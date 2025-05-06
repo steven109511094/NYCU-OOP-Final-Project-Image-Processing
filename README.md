@@ -1,5 +1,6 @@
 # NYCU-OOP-Final-Project-Image-Processing
 Last Updated: 2025/05/07
+
 :::danger
 請妥善使用E3平台上的討論區發問!
 建議可以開啟訂閱!(一旦有人發問或回答，系統會自動寄信到你的信箱通知)  
@@ -11,6 +12,7 @@ Last Updated: 2025/05/07
 假想今天我們想要將一串文字隱藏起來，除了把它背起來銷毀，和把它埋到某個不知名的地方外，還有沒有什麼辦法呢?
 沒錯!就是加密，但為了讓題目更有趣點，我們融入了影像處理，也就是把文字加密進圖像當中!
 ![image](https://hackmd.io/_uploads/SyvlHiPgxe.png)
+
 如圖所示，我們在原來的照片中隱藏了"I love OOP"這串文字，但卻沒有讓圖片有太大的變動。(畢竟如果圖片變得太奇怪，可能就會被人看出端倪?)
 當然了，我們也要能夠從加密完的圖片中，解碼出原來的字串。
 若是只有這樣，題目難免有些單調，因此我們也鼓勵同學們上網搜尋與實作各種有關影像處理、文字加密的算法。只要demo時展示功能並附註於結報中，助教們會依照內容豐富度與難度進行額外加分!
@@ -26,6 +28,7 @@ ex：8 位元灰階影像
 不同於彩色影像，灰階影像包含各種灰色調。在 8 位元灰階影像中，每個像素代表不同的強度水平，其中 0 為黑色，255 為白色，中間有各種灰色調。
 ![image](https://hackmd.io/_uploads/ry0phvoW0.png)
 Ref: [https://processing.org/tutorials/color]
+
 ![image](https://hackmd.io/_uploads/SkegTwj-0.png)
 
 :::success    
